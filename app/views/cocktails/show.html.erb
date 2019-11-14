@@ -1,0 +1,8 @@
+<h1><%= @cocktail.name %> </h1>
+<p><%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-secondary' %></p>
+<ul>
+  <% @cocktail.ingredients.each do |ingredient| %>
+  <li><%= ingredient.name %> - <%= @cocktail.doses.where(ingredient: ingredient).first.description %> - <%= link_to 'delete',  dose_path(@cocktail.doses.where(ingredient: ingredient).first.id), method: :delete, data: { confirm: "Are you sure?" } %>
+  </li>
+  <% end %>
+</ul>
