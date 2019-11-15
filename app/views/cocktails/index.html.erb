@@ -1,12 +1,30 @@
 <h1>All Your Cocktails</h1>
 
+
 <ul>
+  <div class="grid-cocktail-wrapper">
   <% @cocktails.each do |cocktail| %>
-  <li><%= cocktail.name %> <%= link_to 'View', cocktail_path(cocktail) %> </li>
+    <li>
+      <div class="card mb-3 shadow" style="max-width: 540px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <% if cocktail.photo.attached? %>
+              <%= cl_image_tag cocktail.photo.key, crop: :fill, class: "card-img" %>
+            <% else %>
+              <%= image_tag 'logo-cocktail.gif', class: "card-img" %>
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= cocktail.name %></h5>
+              <p class="card-text"><%= cocktail.description if cocktail.description %></p>
+              <p class="card-text"><small class="text-muted"><%= link_to 'View More', cocktail_path(cocktail) %></small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
   <% end %>
+  </div>
 </ul>
 
-<%= cl_image_tag("xh6vz2opxxfkyukm7hab", width: 400, height: 300, crop: :fill) %>
-
-<!-- for face detection -->
-<%= cl_image_tag("mjnylwnm7ea5xwav3nx8", width: 150, height: 150, crop: :thumb, gravity: :face) %>
