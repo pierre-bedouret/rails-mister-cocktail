@@ -5,11 +5,11 @@
   <div class="grid-cocktail-wrapper">
   <% @cocktails.each do |cocktail| %>
     <li>
-      <div class="card mb-3 shadow" style="max-width: 540px;">
+      <div class="card mb-3 shadow" style="max-width: 540px; min-height: 170px;">
         <div class="row no-gutters">
           <div class="col-md-4">
             <% if cocktail.photo.attached? %>
-              <%= cl_image_tag cocktail.photo.key, crop: :fill, class: "card-img" %>
+              <%= cl_image_tag cocktail.photo.key, crop: :scale, class: "card-img" %>
             <% else %>
               <%= image_tag 'logo-cocktail.gif', class: "card-img" %>
             <% end %>
