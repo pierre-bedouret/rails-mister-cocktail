@@ -1,3 +1,5 @@
 import 'bootstrap';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
-console.log('Hello World from Webpacker')
+initSweetalert('#sweet-alert-demo');
+
