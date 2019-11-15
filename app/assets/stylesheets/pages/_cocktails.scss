@@ -12,3 +12,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media(min-width: 768px) {
+  img.card-img {
+    max-height: 168px;
+  }
+}
