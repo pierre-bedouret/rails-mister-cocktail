@@ -2,9 +2,9 @@
 <p><%= link_to 'Add ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-secondary' %></p>
 <ul>
   <% @cocktail.doses.each do |dose| %>
-  <li><%= dose.ingredient.name %> - <%= dose.description %> - <%= link_to 'delete',  dose_path(dose), method: :delete, class: 'delete-dose' %>
-  </li>
-  <button id="delete-dose-<%=dose.id%>" class="btn btn-danger delete-dose">Delete <%= dose.ingredient.name %></button>
+  <li><%= dose.ingredient.name %> - <%= dose.description %>
+  <button id="<%=dose.id%>" class="btn btn-sm inline delete-dose" data-name="<%= dose.ingredient.name %>">(Delete)</button>
   <%= link_to "", dose_path(dose), method: :delete, id: "delete-link-#{dose.id}", class: "hidden" %>
+  </li>
   <% end %>
 </ul>
